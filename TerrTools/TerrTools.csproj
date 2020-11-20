@@ -117,6 +117,7 @@
     <Compile Include="Commands\GridAxes.cs" />
     <Compile Include="Commands\IzometryGenerator .cs" />
     <Compile Include="Commands\InsulCurves.cs" />
+    <Compile Include="Commands\Marking.cs" />
     <Compile Include="Commands\PythonExecuter.cs" />
     <Compile Include="GlobalSettings.cs" />
     <Compile Include="Logging.cs" />
@@ -368,6 +369,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icons\Insul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\Marking.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
