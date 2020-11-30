@@ -335,6 +335,11 @@ namespace TerrTools
                     "InsulCurvesSelection",
                     "Выбрать вручную"
                     ));
+            pbDict.Add("AutomaticDigitizing",
+                MakePushButton(
+                    "AutomaticDigitizing",
+                    "Оцифровка геометрии из DWG"
+                    ));
 
 
             ///
@@ -390,7 +395,8 @@ namespace TerrTools
             panelGeneral.AddItem(pbDict["SystemScheduleExporter"]);
             panelGeneral.AddItem(pbDict["GridAxes"]);
             panelGeneral.AddItem(pbDict["CopyRoomShape"]);
-            panelGeneral.AddItem(pbDict["PythonExecuter"]);            
+            panelGeneral.AddItem(pbDict["PythonExecuter"]);
+            panelGeneral.AddItem(pbDict["AutomaticDigitizing"]);
 
 
             ///

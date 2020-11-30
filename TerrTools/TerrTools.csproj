@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
+    <Compile Include="Commands\AutomaticDigitizing.cs" />
     <Compile Include="Commands\CollisionUtilities.cs" />
     <Compile Include="Commands\CollisionViewer.cs" />
     <Compile Include="Commands\ColumnFinish.cs" />
