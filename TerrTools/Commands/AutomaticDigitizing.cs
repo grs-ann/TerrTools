@@ -18,13 +18,14 @@ namespace TerrTools
     [Transaction(TransactionMode.Manual)]
     class AutomaticDigitizing : IExternalCommand
     {
-        
+        UIDocument UIDoc { get; set; }
         Document Doc { get => UIDoc.Document; }
         
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            UIDocument UIDoc { get; set; }
+            UIDoc = commandData.Application.ActiveUIDocument;
             var visibleDWGGeometry = GetDWGLines();
+            WorkWithDWGLines(visibleDWGGeometry);
             return Result.Succeeded;
         }
         // Возвращает коллекцию линий.
@@ -53,6 +54,22 @@ namespace TerrTools
                 }
             }
             return visibleDWGGeometry;
+        }
+        public void WorkWithDWGLines(List<GeometryObject> visibleDWGGeometry)
+        {
+            using (Transaction trans = new Transaction(Doc))
+            {
+                trans.Start("name");
+                foreach (var item in visibleDWGGeometry)
+                {
+                    var polyLine = item as Curve;
+                    if (polyLine != null)
+                    {
+                        var curve = Doc.Create.NewModelCurve(polyLine, UIDoc.ActiveView.SketchPlane);
+                    }
+                }
+                trans.Commit();
+            }
         }
     }
 }
